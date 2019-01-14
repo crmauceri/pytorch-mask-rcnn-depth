@@ -45,9 +45,9 @@ import zipfile
 import urllib.request
 import shutil
 
-from config import Config
-import utils
-import model as modellib
+from .config import Config
+from .utils import *
+from .model import *
 
 import torch
 
@@ -447,10 +447,10 @@ if __name__ == '__main__':
 
     # Create model
     if args.command == "train":
-        model = modellib.MaskRCNN(config=config,
+        model = MaskRCNN(config=config,
                                   model_dir=args.logs)
     else:
-        model = modellib.MaskRCNN(config=config,
+        model = MaskRCNN(config=config,
                                   model_dir=args.logs)
     if config.GPU_COUNT:
         model = model.cuda()

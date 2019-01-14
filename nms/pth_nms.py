@@ -1,6 +1,8 @@
 import torch
-from ._ext import nms
 import numpy as np
+
+if torch.cuda.is_available():
+  from ._ext import nms
 
 def pth_nms(dets, thresh):
   """
